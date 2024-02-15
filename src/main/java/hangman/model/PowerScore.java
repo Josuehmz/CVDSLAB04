@@ -10,7 +10,8 @@ public class PowerScore implements GameScore{
      * @throws GameScoreException
      * @return score, si el jugador pasa los 500 puntos, su puntaje será igualmente 500
      */
-    public int calculateScore(int correctCount, int incorrectCount) throws GameScoreException{
-        
+    @Override
+     public int calculateScore(int correctCount, int incorrectCount) throws GameScoreException{
+        return 0;
     }
 }

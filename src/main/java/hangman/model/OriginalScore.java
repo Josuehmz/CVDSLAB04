@@ -9,7 +9,9 @@ public class OriginalScore implements GameScore{
          * @throws GameScoreException
          * @return score
         */
+        @Override
         public int calculateScore (int correctCount, int incorrectCount) throws GameScoreException{
 
+        return 0;
         }
 }

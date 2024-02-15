@@ -10,7 +10,8 @@ public class BonusScore implements GameScore{
      * @throws GameScoreException
      * @return score
     */
-   public int calculateScore(int correctCount, int incorrectCount) throws GameScoreException{
-
+   @Override
+    public int calculateScore(int correctCount, int incorrectCount) throws GameScoreException{
+        return 0;
    }
 }
