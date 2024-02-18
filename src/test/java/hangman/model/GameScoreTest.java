@@ -91,8 +91,8 @@ public class GameScoreTest{
     }
     
     /**
-	 * Clase de Equivalencia01 --> #Correctas * 10 - #Incorrectas* 5 >= 0.
-	 * Caso Borde -->  #Correctas * 10 - #Incorrectas* 5 >= 0.
+	 * Clase de Equivalencia01 --> 100 + #Correctas * 10 - #Incorrectas* 5 >= 0.
+	 * Caso Borde -->  100 +#Correctas * 10 - #Incorrectas* 5 >= 0.
 	 *
 	 */
     @Test    
@@ -102,8 +102,8 @@ public class GameScoreTest{
         int score;
 		try {
 			score = calculator.calculateScore(8, 4);
-			assertEquals(60, score,"El puntaje debe ser 100 para letras correctas.");
-			score = calculator.calculateScore(10,20);
+			assertEquals(160, score,"El puntaje debe ser 100 para letras correctas.");
+			score = calculator.calculateScore(10,40);
 			assertEquals(0, score);
 		} catch (GameScoreException e) {
 			fail("Lanzo Excepcion");
@@ -114,7 +114,7 @@ public class GameScoreTest{
     /**
 	 * Clase de Equivalencia 01 --> El valor de letras correctas es negativo.
 	 * Clase de Equivalencia 02 --> El valor de letras incorrectas es negativo
-	 * Caso Borde --> ! (#Correctas * 10 - #Incorrectas* 5 < 0).
+	 * Caso Borde --> ! (100 + #Correctas * 10 - #Incorrectas* 5 < 0).
 	 *
 	 */
     
@@ -140,7 +140,7 @@ public class GameScoreTest{
 		}
 		
 		try {
-			score = calculator.calculateScore(2, 10);
+			score = calculator.calculateScore(5, 32);
 			fail("No lanzo excepción");
 		} catch (GameScoreException e) {
 			assertEquals(e.getMessage(),GameScoreException.SCORE_NEGATIVO);
@@ -152,9 +152,9 @@ public class GameScoreTest{
     
     
     /**
-	 * Clase de Equivalencia01 --> #Correctas**i - #Incorrectas* 8 >= 0.
-	 * Clase de Equivalencia01 --> #Correctas**i - #Incorrectas* 8 >= 0.
-	 * Clase de Equivalencia01 --> #Correctas**i - #Incorrectas* 8 <= 500
+	 * Clase de Equivalencia01 --> La suma de 5**i por cada i correcta - #Incorrectas* 8 >= 0.
+	 * Caso Borde--> La suma de 5**i por cada i correcta - #Incorrectas* 8  >= 0.
+	 * Caso Borde--> La suma de 5**i por cada i correcta - #Incorrectas* 8  <= 500
 	 *
 	 */
     @Test    
@@ -176,7 +176,7 @@ public class GameScoreTest{
     /**
 	 * Clase de Equivalencia 01 --> El valor de letras correctas es negativo.
 	 * Clase de Equivalencia 02 --> El valor de letras incorrectas es negativo
-	 * Caso Borde --> ! (#Correctas * 10 - #Incorrectas* 5 < 0).
+	 * Caso Borde --> ! (La suma de 5**i por cada i correcta - #Incorrectas* 8  < 0).
 	 *
 	 */
     
