@@ -1,6 +1,6 @@
 package hangman.model;
 public class OriginalScore implements GameScore{
-        /**
+    /**
          * @pre Se inicia con 100 puntos
          * @pre El puntaje minimo es 0
          * @pos Se penaliza cada letra incorrecta con -10 puntos
@@ -16,4 +16,9 @@ public class OriginalScore implements GameScore{
     		if (incorrectCount > 10) throw new GameScoreException(GameScoreException.SCORE_NEGATIVO);
             return 100 - incorrectCount * 10;
        }
+       @Override
+       public int reset(){
+        return 100;
+       }
+
 }

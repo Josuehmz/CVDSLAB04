@@ -17,4 +17,8 @@ public class BonusScore implements GameScore{
 		if (100 + correctCount * 10- incorrectCount * 5 < 0) throw new GameScoreException(GameScoreException.SCORE_NEGATIVO);
         return 100 + correctCount * 10- incorrectCount * 5;
    }
+   @Override
+   public int reset(){
+    return 0;
+   }
 }

@@ -23,4 +23,8 @@ public class PowerScore implements GameScore{
         if (score > 500) score = 500;
     	return score;
    }
+   @Override
+   public int reset(){
+   return 0;
+    }
 }

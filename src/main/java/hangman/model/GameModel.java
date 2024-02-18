@@ -21,6 +21,8 @@ import java.util.List;
 import java.util.Random;
 import java.util.Scanner;
 
+import com.google.inject.Inject;
+
 
 public class GameModel {
     private int incorrectCount;
@@ -35,9 +37,10 @@ public class GameModel {
     private Scanner scan;
     private String randomWord;
     private char[] randomWordCharArray;
+    @Inject
+    private GameScore score;
 
-
-    public GameModel(HangmanDictionary dictionary) {
+    public GameModel(HangmanDictionary dictionary, GameScore score) {
         //this.dictionary = new EnglishDictionaryDataSource();
         this.dictionary = dictionary;
         randomWord = selectRandomWord();
@@ -45,7 +48,7 @@ public class GameModel {
         incorrectCount = 0;
         correctCount = 0;
         gameScore = 100;
-
+        this.score = score;
     }
 
     //method: reset
@@ -55,7 +58,7 @@ public class GameModel {
         randomWordCharArray = randomWord.toCharArray();
         incorrectCount = 0;
         correctCount = 0;
-        gameScore = 100;
+        gameScore = score.reset();
     }
 
     //setDateTime
@@ -63,6 +66,7 @@ public class GameModel {
     public void setDateTime() {
         this.dateTime = LocalDateTime.now();
     }
+    
 
     //method: makeGuess
     //purpose: check if user guess is in string. Return a

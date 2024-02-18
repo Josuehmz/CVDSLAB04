@@ -6,5 +6,6 @@ public interface GameScore{
      * @return int que representa el score
     */
     
-    int calculateScore(int correctCount, int incorrectCount) throws GameScoreException;
+    public abstract int calculateScore(int correctCount, int incorrectCount) throws GameScoreException;
+    public abstract int reset();
 }
