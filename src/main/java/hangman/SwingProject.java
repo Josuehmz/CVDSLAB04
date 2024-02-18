@@ -31,6 +31,7 @@ import com.google.inject.Guice;
 import com.google.inject.Injector;
 import hangman.setup.factoryMethod.HangmanDefaultFactoryMethod;
 import hangman.setup.guice.HangmanFactoryServices;
+import hangman.setup.guice.ModuleHangmanDefault;
 
 public class SwingProject {
 
@@ -48,7 +49,7 @@ public class SwingProject {
     }
 
     public static GUI createGUIUsingGuice() {
-        Injector injector = Guice.createInjector(new HangmanFactoryServices());
+        Injector injector = Guice.createInjector(new ModuleHangmanDefault());
         return injector.getInstance(GUI.class);
     }
 
